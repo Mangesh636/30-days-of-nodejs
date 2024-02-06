@@ -1,0 +1,15 @@
+{
+  "name": "30-days-of-nodejs",
+  "version": "1.0.0",
+  "description": "![NodeJs Banner](./banner.webp \"30 Days of NodeJs\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
