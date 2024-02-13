@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Chat</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+      }
+      input,
+      button {
+        padding: 4px;
+        margin: 10px;
+      }
+    </style>
+    <script>
+      const socket = new WebSocket(`ws://${location.host}/websocket`);
+
+      socket.onopen = () => {
+        console.log("connection estabilished with websocket");
+      };
+
+      socket.onmessage = (event) => {
+        console.log(`Recieved: ${event.data}`);
+      };
+
+      socket.onclose = () => {
+        console.log("connection closed with websocket");
+      };
+
+      const sendMessage = () => {
+        const message = document.getElementById("msg").value;
+        socket.send(message);
+      };
+    </script>
+  </head>
+  <body>
+    <input type="text" placeholder="enter your message" id="msg" />
+    <button onclick="sendMessage()">Send</button>
+  </body>
+</html>
